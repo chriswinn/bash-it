@@ -13,12 +13,13 @@ GIT_THEME_PROMPT_SUFFIX="${green}|"
 RVM_THEME_PROMPT_PREFIX="|"
 RVM_THEME_PROMPT_SUFFIX="|"
 
-THEME_SHOW_CLOCK=${THEME_SHOW_CLOCK:-"true"}
-THEME_SHOW_VENV=${THEME_SHOW_VENV:-"true"}
-THEME_SHOW_VENV_RUBY=${THEME_SHOW_VENV_RUBY:-"true"} # Defaults to Python, unless this == "true"
 THEME_CLOCK_CHAR_COLOR=${THEME_CLOCK_CHAR_COLOR:-"$red"}
+THEME_SHOW_CLOCK=${THEME_SHOW_CLOCK:-"true"}
 THEME_CLOCK_COLOR=${THEME_CLOCK_COLOR:-"$bold_cyan"}
 THEME_CLOCK_FORMAT=${THEME_CLOCK_FORMAT:-"%Y-%m-%d %H:%M"}
+
+THEME_SHOW_VENV=${THEME_SHOW_VENV:-"true"}
+THEME_SHOW_VENV_RUBY=${THEME_SHOW_VENV_RUBY:-"true"} # Defaults to Python, unless this == "true"
 
 __c17n_clock() {
   if [[ "${THEME_SHOW_CLOCK}" == "true" ]]; then
