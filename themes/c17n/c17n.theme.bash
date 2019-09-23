@@ -19,20 +19,23 @@ THEME_CLOCK_COLOR=${THEME_CLOCK_COLOR:-"$bold_cyan"}
 THEME_CLOCK_FORMAT=${THEME_CLOCK_FORMAT:-"%Y-%m-%d %H:%M"}
 
 THEME_SHOW_VENV=${THEME_SHOW_VENV:-"true"}
-THEME_SHOW_VENV_RUBY=${THEME_SHOW_VENV_RUBY:-"true"} # Defaults to Python, unless this == "true"
+THEME_SHOW_VENV_RUBY=${THEME_SHOW_VENV_RUBY:-"false"} # Defaults to Python, unless this == "true"
 
 __c17n_clock() {
   if [[ "${THEME_SHOW_CLOCK}" == "true" ]]; then
-		printf "$(clock_prompt)" && __c17n_space 
+		printf "$(clock_prompt)"
   fi
 }
 
 __c17n_venv() {
   if [[ "${THEME_SHOW_VENV}" == "true" ]] && [[ "${THEME_SHOW_VENV_RUBY}" == "true" ]]; then
-    printf "($(ruby_version_prompt))" && __c17n_space 
+    printf "$(ruby_version_prompt)" && __c17n_space 
 	elif [[ "${THEME_SHOW_VENV}" == "true" ]]; then  
-    printf "($(python_version_prompt))" && __c17n_space
+    printf " ($(python_version_prompt))" && __c17n_space
   fi
+}
+__c17n_space(){
+	printf ' '
 }
 
 function prompt_command() {
